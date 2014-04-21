@@ -50,3 +50,17 @@ exec { "unpack cassandra":
         cwd => $dependencies_dir,
         require => File["/opt/cassandra"]
 }
+
+file{ "/var/lib/cassandra":
+        ensure => "directory",
+        owner  => "vagrant",
+        group  => "vagrant",
+        mode   => 644,
+}
+
+file{ "/var/log/cassandra":
+        ensure => "directory",
+        owner  => "vagrant",
+        group  => "vagrant",
+        mode   => 644,
+}
