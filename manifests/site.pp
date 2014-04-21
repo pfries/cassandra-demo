@@ -5,7 +5,6 @@ $java_url         = "http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u
 $cassandra_url    = "http://archive.apache.org/dist/cassandra/2.0.6/apache-cassandra-2.0.6-bin.tar.gz"
 $cassandra_tar    = "apache-cassandra-2.0.6-bin.tar.gz"
 
-
 # set global executable search path
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 
@@ -47,7 +46,7 @@ file{ "/opt/cassandra":
 }
 
 exec { "unpack cassandra":
-        command => "tar xzvf ${cassandra_tar} -C /home/vagrant/cassandra/",
+        command => "tar xzvf ${cassandra_tar} -C /opt/cassandra/",
         cwd => $dependencies_dir,
         require => File["/opt/cassandra"]
 }
